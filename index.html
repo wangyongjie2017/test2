@@ -1,0 +1,19 @@
+<div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "post",
+                url: 'http://prom.mobile.gome.com.cn/mobile/promotion/promscms/singleTemplet.jsp?body={"keyProms":"salegomefenqigou","templetId":"4271228","provinceId":"","cityId":"","isFilter":"N","isHybrid":"1"}',
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.serverTime);
+                },
+                error: function (request) {
+                    console.log(request)
+                }
+            })
+        })
+    </script>
+</div>
