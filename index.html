@@ -1,19 +1,40 @@
 <div>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
     <script>
         $(document).ready(function () {
+            var sp_much = [];
             $.ajax({
-                type: "post",
                 url: 'http://prom.mobile.gome.com.cn/mobile/promotion/promscms/singleTemplet.jsp?body={"keyProms":"salegomefenqigou","templetId":"4271228","provinceId":"","cityId":"","isFilter":"N","isHybrid":"1"}',
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                    console.log(data.serverTime);
+                type:'post',
+                cors:'Y',
+                 success: function (data) {
+                    sp_much.push(data.templetList[0].goodsTemplet.goodsList[0].goodsBean.priceBean.skuRushBuyPriceDesc);
+                    $(".sp1").append(sp_much[0])
+                    console.log(sp_much)
                 },
                 error: function (request) {
                     console.log(request)
                 }
             })
+
         })
     </script>
+    <style>
+        .my_box {
+            position: relative;
+        }
+
+        .my_box .sp1 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: #fff;
+        }
+    </style>
+</div>
+<div class="my_box">
+    <img src="http://gfs12.gomein.net.cn/T1NahgB4_T1RCvBVdK.jpg" alt="">
+    <div class="sp1"></div>
 </div>
