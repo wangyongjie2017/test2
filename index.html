@@ -1,40 +1,34 @@
-<div>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-    <script>
-        $(document).ready(function () {
-            var sp_much = [];
-            $.ajax({
-                url: 'http://prom.mobile.gome.com.cn/mobile/promotion/promscms/singleTemplet.jsp?body={"keyProms":"salegomefenqigou","templetId":"4271228","provinceId":"","cityId":"","isFilter":"N","isHybrid":"1"}',
-                type:'post',
-                cors:'Y',
-                 success: function (data) {
-                    sp_much.push(data.templetList[0].goodsTemplet.goodsList[0].goodsBean.priceBean.skuRushBuyPriceDesc);
-                    $(".sp1").append(sp_much[0])
-                    console.log(sp_much)
-                },
-                error: function (request) {
-                    console.log(request)
-                }
-            })
-
-        })
-    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歇后语</title>
     <style>
-        .my_box {
-            position: relative;
-        }
-
-        .my_box .sp1 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            font-size: 0.8rem;
-            font-weight: 900;
-            color: #fff;
+        h2 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
-</div>
-<div class="my_box">
-    <img src="http://gfs12.gomein.net.cn/T1NahgB4_T1RCvBVdK.jpg" alt="">
-    <div class="sp1"></div>
-</div>
+</head>
+<body>
+    <script src="./data.js"></script>
+    <script>
+        var h4 = document.getElementsByTagName("h4").length;
+        console.log(h4)
+        if (h4 == 0) {
+            document.write(`<h2><img src="http://img.lanrentuku.com/img/allimg/1212/5-121204193R0-50.gif" alt=""></h2>`)
+        }
+        window.onload = function () {
+            for (var i = 0; i < a.length; i++) {
+                document.write(`<h4>题目` + (i + 1) + `</h4>`)
+                document.write(`<p><span>标题：</span> ` + a[i].riddle + ` </p>`)
+                document.write(`<div>答案：<span>` + a[i].answer + `</span> </div>`)
+            }
+        }
+    </script>
+</body>
+</html>
